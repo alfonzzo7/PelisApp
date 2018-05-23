@@ -9,12 +9,15 @@ import { APP_ROUTING } from './app.routes';
 //Services
 import { MovieService } from './services/movie.service';
 
+//Pipes
+import { MovieImgPipe } from './pipes/movie-img.pipe';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { MovieComponent } from './components/movie/movie.component';
-
+import { GaleriaComponent } from './components/home/galeria.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { MovieComponent } from './components/movie/movie.component';
     NavbarComponent,
     HomeComponent,
     SearchComponent,
-    MovieComponent
+    MovieComponent,
+    MovieImgPipe,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,
