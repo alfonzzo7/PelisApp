@@ -69,3 +69,7 @@ body{
 .fadeIn {
   animation-name: fadeIn;
 }
+
+.img-peli{
+  width: 150px
+}

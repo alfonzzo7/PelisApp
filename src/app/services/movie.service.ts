@@ -29,7 +29,7 @@ export class MovieService {
   }
 
   getPopularesKids(){
-    let url = `${ this.urlMoviedb }/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${ this.apikey }&language=es&callback=JSONP_CALLBACK`;
+    let url = `${ this.urlMoviedb }/discover/movie?certification_country=US&certification.lte=PG&sort_by=popularity.desc&api_key=${ this.apikey }&language=es&callback=JSONP_CALLBACK`;
 
     return this.jsonp.get(url)
                .map((res:any) => {
@@ -43,6 +43,15 @@ export class MovieService {
     return this.jsonp.get(url)
                .map((res:any) => {
                  return res.json().results;
+               });
+  }
+
+  buscarPeliculaId(id:string){
+    let url = `${ this.urlMoviedb }/movie/${id}?api_key=${ this.apikey }&language=es&callback=JSONP_CALLBACK`;
+
+    return this.jsonp.get(url)
+               .map((res:any) => {
+                 return res.json();
                });
   }
 

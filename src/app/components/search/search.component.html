@@ -1,3 +1,18 @@
-<p>
-  search works!
-</p>
+<div class="container main-container">
+  <div class="row animated fadeIn fast">
+    <div class="card-columns" *ngIf="peliculas">
+      <div class="card animated fadeIn fast" *ngFor="let pelicula of peliculas; let i = index">
+        <img class="card-img-top img-peli" [src]="pelicula | movieImg:true" [alt]="pelicula.title" class="img-thumbnail img-fluid">
+        <div class="card-body">
+          <h5 class="card-title">{{pelicula.title}}</h5>
+          <p class="card-text">{{pelicula.overview | slice:0:150}}...</p>
+
+          <button [routerLink]="['/movie',pelicula.id,'search', texto]"
+            type="button" name="button" class="btn btn-outline-primary btn-block">
+            Ver mas..
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

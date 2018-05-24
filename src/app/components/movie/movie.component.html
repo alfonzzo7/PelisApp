@@ -1,3 +1,31 @@
-<p>
-  movie works!
-</p>
+<div *ngIf="pelicula"
+     class="container main-container animated fadeIn fast">
+
+  <h1>{{pelicula.title}}</h1>
+
+  <div class="row">
+    <div class="col-md-5">
+      <img [src]="pelicula | movieImg:true" alt="pelicula.original_title"
+           class="img-thumbnail img-fluid">
+    </div>
+    <div class="col-md-7">
+      <h3>Sinopsis</h3>
+      <hr>
+      <p>
+        {{pelicula.overview}}
+      </p>
+      <h4 *ngIf="pelicula.tagline">Frase celebre</h4>
+      <p *ngIf="pelicula.tagline" class="text-justified">
+        {{pelicula.tagline}}
+      </p>
+      <p *ngIf="pelicula.vote_average">
+        Media de Votos: <span class="badge badge-primary">{{pelicula.vote_average}} / 10</span>
+      </p>
+
+      <button type="button"
+              class="btn btn-outline-danger"
+              [routerLink]="['/'+volver, busqueda]">Volver</button>
+
+    </div>
+  </div>
+</div>
