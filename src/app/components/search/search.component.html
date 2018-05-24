@@ -1,4 +1,19 @@
 <div class="container main-container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Buscar:</label>
+        <input [(ngModel)]="texto"
+               type="text"
+               class="form-control"
+               name="texto"
+               placeholder="Buscar una película"
+               (keyup.enter)="buscarPeli()">
+      </div>
+    </div>
+  </div>
+
   <div class="row animated fadeIn fast">
     <div class="card-columns" *ngIf="peliculas">
       <div class="card animated fadeIn fast" *ngFor="let pelicula of peliculas; let i = index">

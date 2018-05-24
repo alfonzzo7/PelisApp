@@ -29,4 +29,13 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  buscarPeli(){
+    if(this.texto.length == 0){
+      return;
+    }
+    this._ms.buscarPelicula(this.texto).subscribe(data => {
+      this.peliculas = data;
+    });
+  }
+
 }
