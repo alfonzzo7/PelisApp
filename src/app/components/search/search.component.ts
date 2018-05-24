@@ -10,8 +10,7 @@ import { MovieService } from '../../services/movie.service';
 })
 export class SearchComponent implements OnInit {
 
-  peliculas:any;
-  texto:string;
+  texto:string = "";
 
   constructor(private activatedRoute:ActivatedRoute,
               public _ms:MovieService) {
@@ -19,9 +18,9 @@ export class SearchComponent implements OnInit {
     .subscribe(params => {
       if(params['texto']){
           this.texto = params['texto'];
-          this._ms.buscarPelicula(this.texto).subscribe(data => {
-            this.peliculas = data;
-          });
+          this.buscarPeli();
+      }else{
+        _ms.peliculas = null;
       }
     });
   }
@@ -33,9 +32,7 @@ export class SearchComponent implements OnInit {
     if(this.texto.length == 0){
       return;
     }
-    this._ms.buscarPelicula(this.texto).subscribe(data => {
-      this.peliculas = data;
-    });
+    this._ms.buscarPelicula(this.texto).subscribe();
   }
 
 }

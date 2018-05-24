@@ -8,6 +8,8 @@ export class MovieService {
   private apikey:string = "0a3c1bec5d3b022bfa93c7633ca60ed6";
   private urlMoviedb:string = "https://api.themoviedb.org/3";
 
+  peliculas:any;
+
   constructor(private jsonp:Jsonp) {}
 
   getCartelera(fechaini:string, fechafin:string){
@@ -42,7 +44,8 @@ export class MovieService {
 
     return this.jsonp.get(url)
                .map((res:any) => {
-                 return res.json().results;
+                 this.peliculas = res.json().results;
+                 return this.peliculas;
                });
   }
 

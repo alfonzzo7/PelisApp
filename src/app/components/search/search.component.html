@@ -15,8 +15,8 @@
   </div>
 
   <div class="row animated fadeIn fast">
-    <div class="card-columns" *ngIf="peliculas">
-      <div class="card animated fadeIn fast" *ngFor="let pelicula of peliculas; let i = index">
+    <div class="card-columns" *ngIf="_ms.peliculas">
+      <div class="card animated fadeIn fast" *ngFor="let pelicula of _ms.peliculas; let i = index">
         <img class="card-img-top img-peli" [src]="pelicula | movieImg:true" [alt]="pelicula.title" class="img-thumbnail img-fluid">
         <div class="card-body">
           <h5 class="card-title">{{pelicula.title}}</h5>
